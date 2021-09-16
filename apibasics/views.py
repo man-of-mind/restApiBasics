@@ -110,3 +110,4 @@ def article_detail(request, pk):
         article.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
+
