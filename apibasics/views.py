@@ -11,9 +11,11 @@ from rest_framework import mixins
 # Create your views here.
 
 
-class GenericAPIView(generics.GenericAPIView, mixins.ListModelMixin):
+class GenericAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.UpdateModelMixin):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
+
+    lookup_field ="id"
 
     def get(self, request):
         return self.list(request)
@@ -21,6 +23,8 @@ class GenericAPIView(generics.GenericAPIView, mixins.ListModelMixin):
     def post(self, request):
         return self.create(request)
 
+    def put(self, request, id=None):
+        return self.update(request, id)
 
 class ArticleApiView(APIView):
     def get(self, request):
