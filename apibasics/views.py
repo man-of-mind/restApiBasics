@@ -73,7 +73,6 @@ class ArticleDetails(APIView):
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
 
-
 @api_view(['GET', 'POST'])          
 def article_list(request):
     if request.method == "GET":
